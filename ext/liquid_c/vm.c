@@ -266,6 +266,7 @@ static long assign_score_of(VALUE value);
 static int assign_score_of_each_hash_value(VALUE key, VALUE value, VALUE func_arg)
 {
     long *sum = (long *)func_arg;
+    *sum += assign_score_of(key);
     *sum += assign_score_of(value);
     return ST_CONTINUE;
 }
@@ -282,7 +283,7 @@ static long assign_score_of(VALUE value)
         {
             long sum = 1;
             rb_hash_foreach(value, assign_score_of_each_hash_value, (VALUE)&sum);
-            return RHASH_SIZE(value);
+            return sum;
         }
         case T_ARRAY:
         {
