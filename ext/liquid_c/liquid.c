@@ -9,6 +9,7 @@
 #include "document_body.h"
 #include "block.h"
 #include "context.h"
+#include "parse_context.h"
 #include "variable_lookup.h"
 #include "vm.h"
 
@@ -82,6 +83,7 @@ void Init_liquid_c(void)
     init_liquid_document_body();
     init_liquid_block();
     init_liquid_context();
+    init_liquid_parse_context();
     init_liquid_variable_lookup();
     init_liquid_vm();
 }
