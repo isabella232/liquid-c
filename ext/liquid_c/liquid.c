@@ -11,6 +11,7 @@
 #include "context.h"
 #include "parse_context.h"
 #include "variable_lookup.h"
+#include "vm_assembler_pool.h"
 #include "vm.h"
 
 ID id_evaluate;
@@ -85,6 +86,7 @@ void Init_liquid_c(void)
     init_liquid_context();
     init_liquid_parse_context();
     init_liquid_variable_lookup();
+    vm_assembler_pool_init();
     init_liquid_vm();
 }
 
